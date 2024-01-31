@@ -1,3 +1,6 @@
+_printf.c
+
+
 #include "main.h"
 
 void print_buffer(char buffer[], int *buff_ind);
@@ -50,4 +53,17 @@ int _printf(const char *format, ...)
 	va_end(list);
 
 	return (printed_chars);
+}
+
+/**
+ * print_buffer - To print the content of the buffer if it exists
+ * @buffer: Is the array of characters
+ * @buff_ind: The index to add the next character, represents the length.
+ */
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }
